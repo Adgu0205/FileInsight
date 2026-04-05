@@ -1,0 +1,72 @@
+{
+  "name": "file-insight",
+  "displayName": "FileInsight",
+  "description": "Hover over any file in the Explorer to see what it does and how it fits your repo.",
+  "version": "0.0.1",
+  "publisher": "AdityaGupta0205",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Adgu0205/FileInsight.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "file summary",
+    "hover",
+    "dependency",
+    "code insight",
+    "repo structure"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fileInsight.refresh",
+        "title": "FileInsight: Refresh"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "fileInsight.explorerView",
+          "name": "FileInsight"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "FileInsight",
+      "properties": {
+        "fileInsight.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable FileInsight"
+        },
+        "fileInsight.maxFilesToScan": {
+          "type": "number",
+          "default": 1500,
+          "description": "Max files to scan for dependency graph"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.19.37",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
